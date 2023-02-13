@@ -1,7 +1,10 @@
 <script>
   import { onMount } from 'svelte';
+  import { fly, fade } from 'svelte/transition';
+  import { Circle } from "svelte-loading-spinners";
 
   let files = [];
+  let show = false;
 
   onMount(async () => {
     const response = await fetch('http://localhost:3001/api/files');
@@ -17,6 +20,7 @@
     }
 
     files = files;
+    show = true;
   });
 </script>
 
@@ -27,13 +31,28 @@
   }
 
   li {
-    margin: 0.5rem 0;
+    margin: 0.5rem 0.5rem;
+  }
+
+  .middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.2s;
   }
 </style>
 
-<ul>
-  {#each files as file}
-    <!-- make it so when clicked, it opens the file in the /open route -->
-    <li><a href="/open/{file}">{file}</a></li>
-  {/each}
-</ul>
+{#if !show}
+  <div class="middle" in:fade={{ delay: 100 }}>
+    <Circle size="60" color="#FF3E00" unit="px" duration="1s"  />
+  </div>
+{:else}
+  <ul>
+    {#each files as file}
+      <!-- make it so when clicked, it opens the file in the /open route -->
+      <li in:fly={{delay: 100, x: -50}} out:fly={{x: 50}} ><a href="/open/{file}">{file}</a></li>
+    {/each}
+  </ul>
+{/if}
+

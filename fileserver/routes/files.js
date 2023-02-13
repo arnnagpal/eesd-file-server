@@ -7,8 +7,10 @@ const filesFolder = './files/';
 function fileExists(filename) {
     return new Promise((resolve, reject) => {
         fs.access(filename, fs.constants.R_OK, (err) => {
-            if (!err)
+            if (!err) {
                 resolve(true);
+                return;
+            }
 
             if (err.code === 'ENOENT') {
                 console.log('File does not exist');

@@ -3,6 +3,8 @@
     import {onMount} from "svelte";
     import {Sheet, download, downloadJSON} from "$lib";
     import {page} from '$app/stores';
+    import { Circle } from "svelte-loading-spinners";
+    import { fade } from 'svelte/transition';
 
     let open;
     let currentValue;
@@ -46,6 +48,11 @@
 
     $: decoded = selected?.[0] ? decode(selected[0]) : {c: 0, r: 0};
 </script>
+{#if !sheet}
+    <div class="middle" in:fade={{ delay: 100 }}>
+        <Circle size="60" color="#FF3E00" unit="px" duration="1s"  />
+    </div>
+{/if}
 
 {#if sheet}
     <button
@@ -105,5 +112,13 @@
 
     .selected {
         text-decoration: underline;
+    }
+
+    .middle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: 0.2s;
     }
 </style>
