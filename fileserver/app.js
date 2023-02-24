@@ -17,39 +17,12 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(cors({
-  origin: '*',
+  origin: "*",
   optionsSuccessStatus: 200
 }));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-function logResponseBody(req, res, next) {
-  var oldWrite = res.write,
-      oldEnd = res.end;
-
-  var chunks = [];
-
-  res.write = function (chunk) {
-    chunks.push(chunk);
-
-    return oldWrite.apply(res, arguments);
-  };
-
-  res.end = function (chunk) {
-    if (chunk)
-      chunks.push(chunk);
-
-    var body = Buffer.concat(chunks).toString('utf8');
-    console.log(req.path, body);
-
-    oldEnd.apply(res, arguments);
-  };
-
-  next();
-}
-
-// app.use(logResponseBody);
 
 app.use('/', indexRouter);
 app.use('/api', indexRouter);

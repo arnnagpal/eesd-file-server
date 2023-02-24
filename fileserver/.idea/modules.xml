@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/fileserver.iml" filepath="$PROJECT_DIR$/.idea/fileserver.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../svelte-sheets/.idea/svelte-sheets.iml" filepath="$PROJECT_DIR$/../svelte-sheets/.idea/svelte-sheets.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../fileserver-front/.idea/fileserver-front.iml" filepath="$PROJECT_DIR$/../fileserver-front/.idea/fileserver-front.iml" />
     </modules>
   </component>
 </project>
