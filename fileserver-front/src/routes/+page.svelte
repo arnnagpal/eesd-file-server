@@ -111,6 +111,22 @@
         transform: translate(-50%, -50%);
         transition: 0.2s;
     }
+
+    @media(prefers-color-scheme: dark) {
+        a {
+            color: #fff;
+            background-color: #333;
+            border-bottom: 1px solid #555;
+        }
+
+        a:hover {
+            background-color: #555;
+        }
+
+        :global(body) {
+            background-color: #222;
+        }
+    }
 </style>
 
 {#if !show}
