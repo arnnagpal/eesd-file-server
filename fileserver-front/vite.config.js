@@ -11,7 +11,7 @@ export default defineConfig({
 			cert: fs.readFileSync('/etc/letsencrypt/live/eesd-file.imoltres.dev/fullchain.pem')
 		},
 		proxy: {
-			'/api': 'https://eesd-file.imoltres.dev:3001'
+			'/api': 'https://eesd-file-service.imoltres.dev:3001'
 		}
 	}
 });

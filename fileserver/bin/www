@@ -22,8 +22,8 @@ app.set('port', port);
  */
 
 var options = {
-  key: fs.readFileSync('/etc/letsencrypt/live/eesd-file.imoltres.dev/privkey.pem', 'utf8'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/eesd-file.imoltres.dev/fullchain.pem', 'utf8')
+  key: fs.readFileSync('/etc/letsencrypt/live/eesd-file-service.imoltres.dev/privkey.pem', 'utf8'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/eesd-file-service.imoltres.dev/fullchain.pem', 'utf8')
 }
 
 var server = https.createServer(options, app);
