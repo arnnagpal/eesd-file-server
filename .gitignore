@@ -4,3 +4,4 @@ node_modules
 .idea
 */.svelte-kit
 */.DS_Store
+*/.env

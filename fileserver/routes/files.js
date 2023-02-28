@@ -61,7 +61,7 @@ router.delete('/delete/:fileName/:password', function (req, res, next) {
         return;
     }
 
-    if (password !== "whatagamer") {
+    if (password !== process.env.DELETE_FILE_PASS) {
         res.json({
             "data": {
                 "message": "Error",

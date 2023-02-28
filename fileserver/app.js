@@ -4,9 +4,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
+var dotenv = require('dotenv');
 
 var indexRouter = require('./routes/index');
 var getFilesRouter = require('./routes/files');
+
+dotenv.config();
 
 var app = express();
 
